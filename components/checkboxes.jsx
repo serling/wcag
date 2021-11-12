@@ -57,12 +57,12 @@ const Checkboxes = ({
                align-items: center;
             }
 
-            .checkboxes--error {
-               border: 2px solid red;
-            }
-
             .checkbox:last-child {
                margin-bottom: 0;
+            }
+
+            .checkboxes--error {
+               border: 2px solid red;
             }
 
             legend {

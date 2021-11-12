@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import Content from '/components/content';
 import Link from 'next/link';
+
+import Content from '/components/content';
 
 export default function Home() {
    return (
@@ -13,11 +14,11 @@ export default function Home() {
          <main>
             <Content>
                <h1>Wcag</h1>
-               <ul>
+               <nav>
                   <li>
                      <Link href="/forms">Forms</Link>
                   </li>
-               </ul>
+               </nav>
             </Content>
          </main>
          <style jsx>{``}</style>

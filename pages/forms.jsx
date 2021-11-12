@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Content from '/components/content';
 import Input from '/components/input';
 import Select from '/components/select';
+import Toggle from '/components/toggle';
 import Checkboxes from '/components/checkboxes';
 
 export default function Forms() {
@@ -34,7 +35,23 @@ export default function Forms() {
                </section>
                <section>
                   <div className="heading">
-                     <h2>E-mail input</h2>
+                     <h2>Password input</h2>
+                  </div>
+                  <div className="content">
+                     <Input id="number-1" type="password" />
+                  </div>
+               </section>
+               <section>
+                  <div className="heading">
+                     <h2>Telephone input</h2>
+                  </div>
+                  <div className="content">
+                     <Input id="number-1" type="tel" />
+                  </div>
+               </section>
+               <section>
+                  <div className="heading">
+                     <h2>E-mail input w/ error</h2>
                   </div>
                   <div className="content">
                      <Input id="email-1" type="email" hasError={true} />
@@ -73,7 +90,8 @@ export default function Forms() {
                         type="radio"
                         options={[
                            { labelText: 'radio 1' },
-                           { labelText: 'radio 2' }
+                           { labelText: 'radio 2' },
+                           { labelText: 'radio 3' }
                         ]}
                      />
                   </div>
@@ -92,6 +110,14 @@ export default function Forms() {
                            { labelText: 'radio 4', value: 'radio-4' }
                         ]}
                      />
+                  </div>
+               </section>
+               <section>
+                  <div className="heading">
+                     <h2>Toggle</h2>
+                  </div>
+                  <div className="content">
+                     <Toggle />
                   </div>
                </section>
             </Content>

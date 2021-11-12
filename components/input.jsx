@@ -4,7 +4,9 @@ const types = {
    text: 'text',
    number: 'number',
    email: 'email',
-   textarea: 'textarea'
+   textarea: 'textarea',
+   tel: 'tel',
+   password: 'password'
 };
 
 const Input = ({
