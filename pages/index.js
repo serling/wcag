@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Content from '/components/content';
+import Link from 'next/link';
 
 export default function Home() {
    return (
@@ -14,7 +15,7 @@ export default function Home() {
                <h1>Wcag</h1>
                <ul>
                   <li>
-                     <a href="/forms">Forms</a>
+                     <Link href="/forms">Forms</Link>
                   </li>
                </ul>
             </Content>
