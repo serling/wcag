@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Error from '/components/error';
 
 const types = {
    text: 'text',
@@ -30,36 +30,13 @@ const Input = ({
             placeholder={placeholderText}
             onChange={onChange}
          />
-         {hasError && errorText && (
-            <div className="error">
-               <div className="error-icon">
-                  <Image
-                     src="/vercel.svg"
-                     alt="Vercel Logo"
-                     width={72}
-                     height={16}
-                  />
-               </div>
-               <p className="error-text">{errorText}</p>
-            </div>
-         )}
+         {hasError && errorText && <Error text={errorText} />}
 
          <style jsx>{`
             textarea {
                width: 300px;
                height: 150px;
                resize: none;
-            }
-
-            .error {
-               margin-top: 0.5rem;
-               display: flex;
-               align-items: center;
-               color: red;
-            }
-
-            .error-icon {
-               margin-right: 0.5rem;
             }
 
             label {

@@ -4,8 +4,15 @@ const Content = ({ children }) => {
          <div className="content">{children}</div>
          <style jsx>{`
             .content {
-               max-width: 760px;
+               padding: 0 2rem;
+               max-width: 768px;
                margin: 0 auto;
+            }
+
+            @media screen and (min-width: 768px) {
+               .content {
+                  padding: 0;
+               }
             }
          `}</style>
       </>

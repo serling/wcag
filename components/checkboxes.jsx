@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Error from '/components/error';
 
 const types = {
    checkbox: 'checkbox',
@@ -38,19 +38,7 @@ const Checkboxes = ({
                }
             )}
          </fieldset>
-         {hasError && errorText && (
-            <div className="error">
-               <div className="error-icon">
-                  <Image
-                     src="/vercel.svg"
-                     alt="Vercel Logo"
-                     width={72}
-                     height={16}
-                  />
-               </div>
-               <p>{errorText}</p>
-            </div>
-         )}
+         {hasError && errorText && <Error text={errorText} />}
 
          <style jsx>{`
             input {
@@ -75,17 +63,6 @@ const Checkboxes = ({
 
             .checkbox:last-child {
                margin-bottom: 0;
-            }
-
-            .error {
-               color: red;
-               margin-top: 0.5rem;
-               display: flex;
-               align-items: center;
-            }
-
-            .error-icon {
-               margin-right: 0.5rem;
             }
 
             legend {
