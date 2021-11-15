@@ -1,6 +1,7 @@
+import Select from 'react-select';
 import Error from '/components/error';
 
-const Select = ({
+const ComplexSelect = ({
    id,
    hasError,
    errorText = 'Default dynamic error text',
@@ -10,16 +11,12 @@ const Select = ({
    return (
       <>
          <div className={hasError ? 'select select--error' : 'select'}>
-            <label htmlFor={id}>{labelText}</label>
-            <select id={id}>
-               {options.map(({ label, value }, index) => {
-                  return (
-                     <option key={index} id={index} value={value}>
-                        {label}
-                     </option>
-                  );
-               })}
-            </select>
+            <Select
+               options={options}
+               isClearable={true}
+               isMulti={true}
+               isSearchable={true}
+            />
             {hasError && errorText && <Error text={errorText} />}
          </div>
 
@@ -41,4 +38,4 @@ const Select = ({
    );
 };
 
-export default Select;
+export default ComplexSelect;

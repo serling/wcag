@@ -3,6 +3,7 @@ import Head from 'next/head';
 import Content from '/components/content';
 import Input from '/components/input';
 import Select from '/components/select';
+import ComplexSelect from '/components/complex-select';
 import Toggle from '/components/toggle';
 import Checkboxes from '/components/checkboxes';
 
@@ -104,10 +105,32 @@ export default function Forms() {
                      <Select
                         id="radios-1"
                         options={[
-                           { labelText: 'radio 1', value: 'radio-1' },
-                           { labelText: 'radio 2', value: 'radio-2' },
-                           { labelText: 'radio 3', value: 'radio-3' },
-                           { labelText: 'radio 4', value: 'radio-4' }
+                           { label: 'radio 1', value: 'radio-1' },
+                           { label: 'radio 2', value: 'radio-2' },
+                           { label: 'radio 3', value: 'radio-3' },
+                           { label: 'radio 4', value: 'radio-4' }
+                        ]}
+                     />
+                  </div>
+               </section>
+               <section>
+                  <div className="heading">
+                     <h2>Select (complex)</h2>
+                  </div>
+                  <div className="content">
+                     <ComplexSelect
+                        id="checkboxes-2"
+                        options={[
+                           { label: 'Apples', value: 'apples-1' },
+                           { label: 'Oranges', value: 'oranges-1' },
+                           { label: 'Grapes', value: 'grapes-1' },
+                           {
+                              label: 'non-fruit',
+                              options: [
+                                 { label: 'Cod', value: 'cod-1' },
+                                 { label: 'Burrito', value: 'burriot-1' }
+                              ]
+                           }
                         ]}
                      />
                   </div>
