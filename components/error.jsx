@@ -6,10 +6,10 @@ const Error = ({ text }) => {
          <div className="error">
             <div className="error-icon">
                <Image
-                  src="/vercel.svg"
-                  alt="Vercel Logo"
-                  width={72}
-                  height={16}
+                  src="/warning.svg"
+                  alt="warning icon"
+                  width={24}
+                  height={24}
                />
             </div>
             <p>{text}</p>
@@ -23,8 +23,13 @@ const Error = ({ text }) => {
                color: red;
             }
 
+            p {
+               font-weight: 500;
+            }
+
             .error-icon {
                margin-right: 0.5rem;
+               line-height: 0;
             }
          `}</style>
       </>

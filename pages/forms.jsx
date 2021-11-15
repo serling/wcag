@@ -114,7 +114,7 @@ export default function Forms() {
                </section>
                <section>
                   <div className="heading">
-                     <h2>Toggle</h2>
+                     <h2>Toggle (checkbox)</h2>
                   </div>
                   <div className="content">
                      <Toggle />
