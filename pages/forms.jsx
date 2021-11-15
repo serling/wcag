@@ -39,7 +39,7 @@ export default function Forms() {
                      <h2>Password input</h2>
                   </div>
                   <div className="content">
-                     <Input id="number-1" type="password" />
+                     <Input id="password-1" type="password" />
                   </div>
                </section>
                <section>
@@ -47,7 +47,7 @@ export default function Forms() {
                      <h2>Telephone input</h2>
                   </div>
                   <div className="content">
-                     <Input id="number-1" type="tel" />
+                     <Input id="telephone-1" type="tel" />
                   </div>
                </section>
                <section>

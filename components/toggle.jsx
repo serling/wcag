@@ -36,6 +36,7 @@ const Toggle = ({ labelText = 'Default label', onChange = () => {} }) => {
          <style jsx>{`
             .label {
                margin-bottom: 0.5rem;
+               cursor: default;
             }
 
             .toggle {

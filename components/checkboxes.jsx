@@ -10,7 +10,7 @@ const types = {
 
 const Checkboxes = ({
    id,
-   labelText = 'Default label',
+   labelText = 'Default legend text',
    onChange = () => {},
    type = types.checkbox,
    options = []
