@@ -1,41 +1,67 @@
 import Select from 'react-select';
-import Error from '/components/error';
+
+import { useContext } from 'react';
+
+import withError from '/components/with-error';
+import ErrorContext from '../contexts/error-context';
 
 const ComplexSelect = ({
    id,
-   hasError,
-   errorText = 'Default dynamic error text',
    labelText = 'Default label text',
+   onChange = () => {},
+   placeholder = 'Default placeholder text',
    options = []
 }) => {
+   const errorId = `error-${id}`;
+
+   const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
+      useContext(ErrorContext);
+
+   const handleOnChange = () => {
+      if (hasError) clearErrorMessage();
+      onChange();
+   };
+
    return (
       <>
-         <div className={hasError ? 'select select--error' : 'select'}>
+         <div className="complex-select">
+            <label htmlFor={id}>{labelText}</label>
             <Select
+               instanceId={`instance-${id}`}
+               inputId={id}
+               onChange={handleOnChange}
+               aria-describedby={errorId}
+               placeholder={placeholder}
                options={options}
                isClearable={true}
                isMulti={true}
                isSearchable={true}
+               styles={{
+                  control: provided => {
+                     return {
+                        ...provided,
+                        ...(hasError
+                           ? { borderColor: 'red', borderWidth: '2px' }
+                           : {})
+                     };
+                  }
+               }}
             />
-            {hasError && errorText && <Error text={errorText} />}
          </div>
 
          <style jsx>{`
-            select {
+            .complex-select {
                font-size: 1.5rem;
-               padding: 0.25rem 1rem;
+               border: ${hasError} ? "2px solid red" : ""
             }
 
             label {
                margin-bottom: 0.5rem;
             }
 
-            .select--error select {
-               border: 2px solid red;
-            }
          `}</style>
       </>
    );
 };
 
-export default ComplexSelect;
+export default withError(ComplexSelect);

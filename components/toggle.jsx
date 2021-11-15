@@ -1,11 +1,37 @@
-const Toggle = ({ labelText = 'Default label' }) => {
+import { useRef } from 'react';
+
+import { useContext } from 'react';
+
+import withError from '/components/with-error';
+import ErrorContext from '../contexts/error-context';
+
+const Toggle = ({ labelText = 'Default label', onChange = () => {} }) => {
+   const inputRef = useRef();
+
+   const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
+      useContext(ErrorContext);
+
+   const handleOnChange = checked => {
+      if (hasError) clearErrorMessage();
+
+      onChange(checked);
+   };
+
    return (
       <>
-         <div className="label">{labelText}</div>
-         <label className="toggle">
-            <input type="checkbox" />
-            <span className="slider" />
-         </label>
+         <div className="switch">
+            <div className="label" onClick={() => inputRef.current.click()}>
+               {labelText}
+            </div>
+            <label className="toggle">
+               <input
+                  type="checkbox"
+                  ref={inputRef}
+                  onChange={e => handleOnChange(e.target.checked)}
+               />
+               <span className="slider" />
+            </label>
+         </div>
 
          <style jsx>{`
             .label {
@@ -25,7 +51,7 @@ const Toggle = ({ labelText = 'Default label' }) => {
                height: 0;
             }
 
-            input:focus + .slider:before {
+            input:focus + .slider {
                border-color: black;
             }
 
@@ -33,6 +59,8 @@ const Toggle = ({ labelText = 'Default label' }) => {
                position: absolute;
                border-radius: 34px;
                cursor: pointer;
+               border: 2px solid transparent;
+               border-color: ${hasError ? 'red' : 'transparent'};
                top: 0;
                left: 0;
                right: 0;
@@ -42,7 +70,6 @@ const Toggle = ({ labelText = 'Default label' }) => {
             }
 
             .slider:before {
-               border: 2px solid transparent;
                position: absolute;
                border-radius: 50%;
                content: '';
@@ -70,4 +97,4 @@ const Toggle = ({ labelText = 'Default label' }) => {
    );
 };
 
-export default Toggle;
+export default withError(Toggle);

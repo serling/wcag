@@ -55,7 +55,11 @@ export default function Forms() {
                      <h2>E-mail input w/ error</h2>
                   </div>
                   <div className="content">
-                     <Input id="email-1" type="email" hasError={true} />
+                     <Input
+                        id="email-1"
+                        type="email"
+                        error={{ text: 'Default initial error message' }}
+                     />
                   </div>
                </section>
                <section>
@@ -72,6 +76,7 @@ export default function Forms() {
                   </div>
                   <div className="content">
                      <Checkboxes
+                        error={{}}
                         id="checkboxes-1"
                         options={[
                            { labelText: 'checkbox 1' },
@@ -87,6 +92,7 @@ export default function Forms() {
                   </div>
                   <div className="content">
                      <Checkboxes
+                        error={{}}
                         id="radios-1"
                         type="radio"
                         options={[
@@ -103,6 +109,7 @@ export default function Forms() {
                   </div>
                   <div className="content">
                      <Select
+                        error={{}}
                         id="radios-1"
                         options={[
                            { label: 'radio 1', value: 'radio-1' },
@@ -119,6 +126,7 @@ export default function Forms() {
                   </div>
                   <div className="content">
                      <ComplexSelect
+                        error={{}}
                         id="checkboxes-2"
                         options={[
                            { label: 'Apples', value: 'apples-1' },
@@ -140,7 +148,7 @@ export default function Forms() {
                      <h2>Toggle (checkbox)</h2>
                   </div>
                   <div className="content">
-                     <Toggle />
+                     <Toggle error={{}} />
                   </div>
                </section>
             </Content>

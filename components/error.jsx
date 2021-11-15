@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
-const Error = ({ text }) => {
+const Error = ({ id, text }) => {
    return (
       <>
-         <div className="error">
+         <div className="error" role="alert" id={id}>
             <div className="error-icon">
                <Image
                   src="/warning.svg"

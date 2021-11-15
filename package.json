@@ -21,6 +21,7 @@
    },
    "prettier": {
       "tabWidth": 3,
+      "arrowParens": "avoid",
       "singleQuote": true,
       "trailingComma": "none"
    }
