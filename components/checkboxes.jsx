@@ -67,7 +67,7 @@ const Checkboxes = ({
             }
 
             .checkboxes {
-               border: ${hasError ? '2px solid red' : ''};
+               ${hasError ? 'border: 2px solid red' : ''};
             }
 
             .checkbox:last-child {

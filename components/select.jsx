@@ -40,9 +40,9 @@ const Select = ({
 
          <style jsx>{`
             select {
-               font-size: 1.5rem;
-               padding: 0.25rem 1rem;
-               border: ${hasError ? '2px solid red' : ''};
+               font-size: 1.2rem;
+               padding: 0.25rem 1rem 0.25rem 0.25rem;
+               ${hasError ? 'border: 2px solid red' : ''};
             }
 
             label {

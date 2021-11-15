@@ -112,10 +112,10 @@ export default function Forms() {
                         error={{}}
                         id="radios-1"
                         options={[
-                           { label: 'radio 1', value: 'radio-1' },
-                           { label: 'radio 2', value: 'radio-2' },
-                           { label: 'radio 3', value: 'radio-3' },
-                           { label: 'radio 4', value: 'radio-4' }
+                           { label: 'Earth', value: 'earth-1' },
+                           { label: 'Wind', value: 'wind-2' },
+                           { label: 'Fire', value: 'fire-3' },
+                           { label: 'Clouds', value: 'clouds-4' }
                         ]}
                      />
                   </div>

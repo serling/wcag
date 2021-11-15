@@ -51,7 +51,6 @@ const ComplexSelect = ({
 
          <style jsx>{`
             .complex-select {
-               font-size: 1.5rem;
                border: ${hasError} ? "2px solid red" : ""
             }
 
