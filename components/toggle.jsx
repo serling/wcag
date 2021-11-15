@@ -1,8 +1,7 @@
 const Toggle = ({ labelText = 'Default label' }) => {
    return (
       <>
-         <span className="label">{labelText}</span>
-         {/* fix: label as label, focus state */}
+         <div className="label">{labelText}</div>
          <label className="toggle">
             <input type="checkbox" />
             <span className="slider" />
@@ -10,7 +9,6 @@ const Toggle = ({ labelText = 'Default label' }) => {
 
          <style jsx>{`
             .label {
-               display: block;
                margin-bottom: 0.5rem;
             }
 
@@ -27,6 +25,10 @@ const Toggle = ({ labelText = 'Default label' }) => {
                height: 0;
             }
 
+            input:focus + .slider:before {
+               border-color: black;
+            }
+
             .slider {
                position: absolute;
                border-radius: 34px;
@@ -40,13 +42,14 @@ const Toggle = ({ labelText = 'Default label' }) => {
             }
 
             .slider:before {
+               border: 2px solid transparent;
                position: absolute;
                border-radius: 50%;
                content: '';
-               height: 26px;
-               width: 26px;
+               height: 24px;
+               width: 24px;
                left: 4px;
-               bottom: 4px;
+               bottom: 3px;
                background-color: white;
                transition: 0.3s;
             }
