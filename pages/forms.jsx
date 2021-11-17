@@ -6,6 +6,8 @@ import Select from '/components/select';
 import ComplexSelect from '/components/complex-select';
 import Toggle from '/components/toggle';
 import Checkboxes from '/components/checkboxes';
+import Button from '/components/button';
+import Form from '/components/form';
 
 export default function Forms() {
    return (
@@ -17,140 +19,157 @@ export default function Forms() {
          </Head>
          <main>
             <Content>
-               <h1>Forms</h1>
-               <section>
-                  <div className="heading">
-                     <h2>Text input</h2>
-                  </div>
-                  <div className="content">
-                     <Input id="text-1" />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Number input</h2>
-                  </div>
-                  <div className="content">
-                     <Input id="number-1" type="number" />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Password input</h2>
-                  </div>
-                  <div className="content">
-                     <Input id="password-1" type="password" />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Telephone input</h2>
-                  </div>
-                  <div className="content">
-                     <Input id="telephone-1" type="tel" />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>E-mail input w/ error</h2>
-                  </div>
-                  <div className="content">
-                     <Input
-                        id="email-1"
-                        type="email"
-                        error={{ text: 'Default initial error message' }}
-                     />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Textarea</h2>
-                  </div>
-                  <div className="content">
-                     <Input id="textarea-1" type="textarea" />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Checkboxes</h2>
-                  </div>
-                  <div className="content">
-                     <Checkboxes
-                        error={{}}
-                        id="checkboxes-1"
-                        options={[
-                           { labelText: 'checkbox 1' },
-                           { labelText: 'checkbox 2' },
-                           { labelText: 'checkbox 3' }
-                        ]}
-                     />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Radio buttons</h2>
-                  </div>
-                  <div className="content">
-                     <Checkboxes
-                        error={{}}
-                        id="radios-1"
-                        type="radio"
-                        options={[
-                           { labelText: 'radio 1' },
-                           { labelText: 'radio 2' },
-                           { labelText: 'radio 3' }
-                        ]}
-                     />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Select</h2>
-                  </div>
-                  <div className="content">
-                     <Select
-                        error={{}}
-                        id="radios-1"
-                        options={[
-                           { label: 'Earth', value: 'earth-1' },
-                           { label: 'Wind', value: 'wind-2' },
-                           { label: 'Fire', value: 'fire-3' },
-                           { label: 'Clouds', value: 'clouds-4' }
-                        ]}
-                     />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Select (complex)</h2>
-                  </div>
-                  <div className="content">
-                     <ComplexSelect
-                        error={{}}
-                        id="checkboxes-2"
-                        options={[
-                           { label: 'Apples', value: 'apples-1' },
-                           { label: 'Oranges', value: 'oranges-1' },
-                           { label: 'Grapes', value: 'grapes-1' },
-                           {
-                              label: 'non-fruit',
-                              options: [
-                                 { label: 'Cod', value: 'cod-1' },
-                                 { label: 'Burrito', value: 'burriot-1' }
-                              ]
-                           }
-                        ]}
-                     />
-                  </div>
-               </section>
-               <section>
-                  <div className="heading">
-                     <h2>Toggle (checkbox)</h2>
-                  </div>
-                  <div className="content">
-                     <Toggle error={{}} />
-                  </div>
-               </section>
+               <Form>
+                  <h1>Forms</h1>
+                  <section>
+                     <div className="heading">
+                        <h2>Text input</h2>
+                     </div>
+                     <div className="content">
+                        <Input id="text-1" />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Number input</h2>
+                     </div>
+                     <div className="content">
+                        <Input id="number-1" type={'number'} />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Password input</h2>
+                     </div>
+                     <div className="content">
+                        <Input id="password-1" type={'password'} />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Telephone input</h2>
+                     </div>
+                     <div className="content">
+                        <Input id="telephone-1" type={'tel'} />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>E-mail input w/ error</h2>
+                     </div>
+                     <div className="content">
+                        <Input
+                           id="email-1"
+                           type={'email'}
+                           error={{ text: 'Default initial error message' }}
+                        />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Textarea</h2>
+                     </div>
+                     <div className="content">
+                        <Input id="textarea-1" type="textarea" />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Checkboxes</h2>
+                     </div>
+                     <div className="content">
+                        <Checkboxes
+                           error={{}}
+                           id="checkboxes-1"
+                           options={[
+                              { labelText: 'checkbox 1' },
+                              { labelText: 'checkbox 2' },
+                              { labelText: 'checkbox 3' }
+                           ]}
+                        />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Radio buttons</h2>
+                     </div>
+                     <div className="content">
+                        <Checkboxes
+                           error={{}}
+                           id="radios-1"
+                           type="radio"
+                           options={[
+                              { labelText: 'radio 1' },
+                              { labelText: 'radio 2' },
+                              { labelText: 'radio 3' }
+                           ]}
+                        />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Select</h2>
+                     </div>
+                     <div className="content">
+                        <Select
+                           error={{}}
+                           id="radios-1"
+                           options={[
+                              { label: 'Earth', value: 'earth-1' },
+                              { label: 'Wind', value: 'wind-2' },
+                              { label: 'Fire', value: 'fire-3' },
+                              { label: 'Clouds', value: 'clouds-4' }
+                           ]}
+                        />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Select (complex)</h2>
+                     </div>
+                     <div className="content">
+                        <ComplexSelect
+                           error={{}}
+                           id="checkboxes-2"
+                           options={[
+                              { label: 'Apples', value: 'apples-1' },
+                              { label: 'Oranges', value: 'oranges-1' },
+                              { label: 'Grapes', value: 'grapes-1' },
+                              {
+                                 label: 'non-fruit',
+                                 options: [
+                                    { label: 'Cod', value: 'cod-1' },
+                                    { label: 'Burrito', value: 'burriot-1' }
+                                 ]
+                              }
+                           ]}
+                        />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Toggle (checkbox)</h2>
+                     </div>
+                     <div className="content">
+                        <Toggle error={{}} />
+                     </div>
+                  </section>
+                  <section>
+                     <div className="heading">
+                        <h2>Buttons</h2>
+                     </div>
+                     <div className="content">
+                        <Button text="Text only" />
+                        <Button hasIcon={true} text="Text and icon" />
+                        <Button
+                           hasIcon={true}
+                           textIsHidden={true}
+                           type={Button.types.submit}
+                           text="icon only"
+                        />
+                     </div>
+                  </section>
+               </Form>
             </Content>
          </main>
          <style jsx>{`
@@ -159,7 +178,7 @@ export default function Forms() {
                background-color: black;
                color: white;
                padding: 0.25rem 2rem;
-               margin-bottom: 0.5rem;
+               margin: 0.5rem 0;
             }
 
             section {

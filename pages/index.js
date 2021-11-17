@@ -18,6 +18,9 @@ export default function Home() {
                   <li>
                      <Link href="/forms">Forms</Link>
                   </li>
+                  <li>
+                     <Link href="/advanced-form">Advanced form</Link>
+                  </li>
                </nav>
             </Content>
          </main>

@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import withError from '/components/with-error';
 import ErrorContext from '../contexts/error-context';
 
-const Toggle = ({ labelText = 'Default label', onChange = () => {} }) => {
+const Toggle = ({ id, labelText = 'Default label', onChange = () => {} }) => {
    const inputRef = useRef();
 
    const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
@@ -14,17 +14,18 @@ const Toggle = ({ labelText = 'Default label', onChange = () => {} }) => {
    const handleOnChange = checked => {
       if (hasError) clearErrorMessage();
 
-      onChange(checked);
+      onChange(id, checked);
    };
 
    return (
       <>
-         <div className="switch">
+         <div>
             <div className="label" onClick={() => inputRef.current.click()}>
                {labelText}
             </div>
-            <label className="toggle">
+            <label className="toggle" htmlFor={id}>
                <input
+                  id={id}
                   type="checkbox"
                   ref={inputRef}
                   onChange={e => handleOnChange(e.target.checked)}

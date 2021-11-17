@@ -17,9 +17,13 @@ const ComplexSelect = ({
    const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
       useContext(ErrorContext);
 
-   const handleOnChange = () => {
+   const handleOnChange = values => {
       if (hasError) clearErrorMessage();
-      onChange();
+
+      onChange(
+         id,
+         values.reduce((prev, { value }) => prev.concat(value), [])
+      );
    };
 
    return (
@@ -29,7 +33,7 @@ const ComplexSelect = ({
             <Select
                instanceId={`instance-${id}`}
                inputId={id}
-               onChange={handleOnChange}
+               onChange={values => handleOnChange(values)}
                aria-describedby={errorId}
                placeholder={placeholder}
                options={options}

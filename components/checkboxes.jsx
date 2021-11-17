@@ -23,7 +23,7 @@ const Checkboxes = ({
    const handleOnChange = checked => {
       if (hasError) clearErrorMessage();
 
-      onChange(checked);
+      onChange(id, checked);
    };
 
    return (

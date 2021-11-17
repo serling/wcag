@@ -14,9 +14,10 @@ const Select = ({
    const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
       useContext(ErrorContext);
 
-   const handleOnChange = () => {
+   const handleOnChange = value => {
       if (hasError) clearErrorMessage();
-      onChange();
+
+      onChange(id, value);
    };
 
    return (
@@ -26,7 +27,7 @@ const Select = ({
             <select
                id={id}
                aria-describedby={errorId}
-               onChange={handleOnChange}
+               onChange={e => handleOnChange(e.target.value)}
             >
                {options.map(({ label, value }, index) => {
                   return (

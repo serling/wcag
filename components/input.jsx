@@ -16,6 +16,7 @@ const Input = ({
    id,
    placeholderText = 'Default placeholder',
    onChange = () => {},
+   onBlur = () => {},
    labelText = 'Default label',
    leadText = 'Default description.',
    type = types.text
@@ -26,9 +27,14 @@ const Input = ({
    const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
       useContext(ErrorContext);
 
-   const handleOnChange = () => {
+   const handleOnChange = value => {
       if (hasError) clearErrorMessage();
-      onChange();
+
+      onChange(id, value);
+   };
+
+   const handleOnBlur = () => {
+      onBlur();
    };
 
    return (
@@ -41,7 +47,8 @@ const Input = ({
             id={id}
             type={type !== types['textarea'] ? types[type] : null}
             placeholder={placeholderText}
-            onChange={handleOnChange}
+            onChange={e => handleOnChange(e.target.value)}
+            onBlur={() => handleOnBlur()}
          />
 
          <style jsx>{`
