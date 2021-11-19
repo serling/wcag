@@ -43,6 +43,7 @@ const Input = ({
          <p className="lead">{leadText}</p>
          <InputElement
             className="input"
+            autoComplete="on"
             aria-describedby={errorId}
             id={id}
             type={type !== types['textarea'] ? types[type] : null}
