@@ -6,8 +6,6 @@ import withError from '/components/with-error';
 import ErrorContext from '../contexts/error-context';
 
 const Toggle = ({ id, labelText = 'Default label', onChange = () => {} }) => {
-   const inputRef = useRef();
-
    const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
       useContext(ErrorContext);
 
@@ -20,14 +18,12 @@ const Toggle = ({ id, labelText = 'Default label', onChange = () => {} }) => {
    return (
       <>
          <div>
-            <div className="label" onClick={() => inputRef.current.click()}>
-               {labelText}
-            </div>
+            <div className="label">{labelText}</div>
             <label className="toggle" htmlFor={id}>
+               <span className="toggle-label">{labelText}</span>
                <input
                   id={id}
                   type="checkbox"
-                  ref={inputRef}
                   onChange={e => handleOnChange(e.target.checked)}
                />
                <span className="slider" />
@@ -45,6 +41,12 @@ const Toggle = ({ id, labelText = 'Default label', onChange = () => {} }) => {
                display: inline-block;
                width: 60px;
                height: 34px;
+            }
+
+            .toggle-label {
+               opacity: 0;
+               width: 0;
+               height: 0;
             }
 
             input {
