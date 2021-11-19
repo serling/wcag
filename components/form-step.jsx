@@ -3,6 +3,7 @@ import ProgressTracker from '/components/progress-tracker';
 import StepActions from '/components/step-actions';
 
 const FormStep = ({
+   id,
    title = 'Placeholder title',
    onChange,
    onNext,
@@ -33,6 +34,7 @@ const FormStep = ({
             </div>
             <div className="progress">
                <ProgressTracker
+                  id={`progress-${id}`}
                   currentStepNumber={currentStepNumber}
                   numberOfSteps={numberOfSteps}
                />

@@ -93,6 +93,7 @@ const MultistepForm = ({ steps = [] }) => {
                      transition={{ duration: 0.2 }}
                   >
                      <FormStep
+                        id={id}
                         title={`Steg ${stepNumber}`}
                         components={components}
                         currentStepNumber={activeStepNumber}

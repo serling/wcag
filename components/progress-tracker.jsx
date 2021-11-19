@@ -1,4 +1,4 @@
-const ProgressTracker = ({ currentStepNumber = 0, numberOfSteps = 0 }) => {
+const ProgressTracker = ({ id, currentStepNumber = 0, numberOfSteps = 0 }) => {
    const percentageComplete = (
       (currentStepNumber / numberOfSteps) *
       100
@@ -6,8 +6,8 @@ const ProgressTracker = ({ currentStepNumber = 0, numberOfSteps = 0 }) => {
 
    return (
       <div>
-         <label htmlFor="progress-1">{`Steg (${percentageComplete}%)`}</label>
-         <progress id="progress-1" value={percentageComplete} max={100}>
+         <label htmlFor={id}>{`Steg (${percentageComplete}%)`}</label>
+         <progress id={id} value={percentageComplete} max={100}>
             {`${percentageComplete}%`}
          </progress>
       </div>
