@@ -6,54 +6,54 @@ import withError from '/components/with-error';
 import ErrorContext from '../contexts/error-context';
 
 const ComplexSelect = ({
-   id,
-   labelText = 'Default label text',
-   onChange = () => {},
-   placeholder = 'Default placeholder text',
-   options = []
+    id,
+    labelText = 'Default label text',
+    onChange = () => {},
+    placeholder = 'Default placeholder text',
+    options = []
 }) => {
-   const errorId = `error-${id}`;
+    const errorId = `error-${id}`;
 
-   const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
-      useContext(ErrorContext);
+    const { errorMessage, setErrorMessage, clearErrorMessage, hasError } =
+        useContext(ErrorContext);
 
-   const handleOnChange = values => {
-      if (hasError) clearErrorMessage();
+    const handleOnChange = values => {
+        if (hasError) clearErrorMessage();
 
-      onChange(
-         id,
-         values.reduce((prev, { value }) => prev.concat(value), [])
-      );
-   };
+        onChange(
+            id,
+            values.reduce((prev, { value }) => prev.concat(value), [])
+        );
+    };
 
-   return (
-      <>
-         <div className="complex-select">
-            <label htmlFor={id}>{labelText}</label>
-            <Select
-               instanceId={`instance-${id}`}
-               inputId={id}
-               onChange={values => handleOnChange(values)}
-               aria-describedby={errorId}
-               placeholder={placeholder}
-               options={options}
-               isClearable={true}
-               isMulti={true}
-               isSearchable={true}
-               styles={{
-                  control: provided => {
-                     return {
-                        ...provided,
-                        ...(hasError
-                           ? { borderColor: 'red', borderWidth: '2px' }
-                           : {})
-                     };
-                  }
-               }}
-            />
-         </div>
+    return (
+        <>
+            <div className="complex-select">
+                <label htmlFor={id}>{labelText}</label>
+                <Select
+                    instanceId={`instance-${id}`}
+                    inputId={id}
+                    onChange={values => handleOnChange(values)}
+                    aria-describedby={errorId}
+                    placeholder={placeholder}
+                    options={options}
+                    isClearable={true}
+                    isMulti={true}
+                    isSearchable={true}
+                    styles={{
+                        control: provided => {
+                            return {
+                                ...provided,
+                                ...(hasError
+                                    ? { borderColor: 'red', borderWidth: '2px' }
+                                    : {})
+                            };
+                        }
+                    }}
+                />
+            </div>
 
-         <style jsx>{`
+            <style jsx>{`
             .complex-select {
                border: ${hasError} ? "2px solid red" : ""
             }
@@ -63,8 +63,8 @@ const ComplexSelect = ({
             }
 
          `}</style>
-      </>
-   );
+        </>
+    );
 };
 
 export default withError(ComplexSelect);
