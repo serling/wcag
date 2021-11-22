@@ -1,6 +1,10 @@
 import React from 'react';
 import '../styles/globals.css';
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+   require('../mocks');
+}
+
 if (typeof window !== 'undefined' && process.env.NODE_ENV !== 'production') {
    const ReactDOM = require('react-dom');
 

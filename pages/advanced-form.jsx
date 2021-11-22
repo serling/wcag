@@ -1,10 +1,13 @@
 import Head from 'next/head';
-import data from '../data/form';
 
 import Content from '/components/content';
 import MultistepForm from '/components/multistep-form';
 
 export async function getStaticProps(context) {
+   const response = await fetch('https://my.backend/form-data');
+
+   const data = await response.json();
+
    return {
       props: { ...data }
    };
