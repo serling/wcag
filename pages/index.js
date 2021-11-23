@@ -15,15 +15,17 @@ export default function Home() {
                 <Content>
                     <h1>Wcag</h1>
                     <nav>
-                        <li>
-                            <Link href="/forms">Forms</Link>
-                        </li>
-                        <li>
-                            <Link href="/advanced-form">Advanced form</Link>
-                        </li>
-                        <li>
-                            <Link href="/blog">Blog</Link>
-                        </li>
+                        <ul>
+                            <li>
+                                <Link href="/forms">Forms</Link>
+                            </li>
+                            <li>
+                                <Link href="/advanced-form">Advanced form</Link>
+                            </li>
+                            <li>
+                                <Link href="/blog">Blog</Link>
+                            </li>
+                        </ul>
                     </nav>
                 </Content>
             </main>

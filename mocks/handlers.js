@@ -8,8 +8,7 @@ export const handlers = [
 
     rest.get('https://my.backend/markdown', (req, res, ctx) => {
         return res(
-            ctx.json(
-                `
+            ctx.json(`
 # Blog entry
 
 Sint ullamco labore quis aute esse. Non minim do ut anim exercitation 
@@ -24,8 +23,7 @@ Non aute veniam aute nisi enim est minim officia. Sunt Lorem voluptate laborum d
 Custom component in mdx: 
 
 <Button text='button'/>
-`
-            )
+`)
         );
     }),
 
