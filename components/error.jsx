@@ -20,7 +20,7 @@ const Error = ({ id, text }) => {
                     margin-top: 0.5rem;
                     display: flex;
                     align-items: center;
-                    color: red;
+                    color: #950404;
                 }
 
                 p {

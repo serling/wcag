@@ -12,9 +12,7 @@ const inputTypes = {
     Toggle
 };
 
-//TODO: swap onChange changes with onBlur?
-
-const InputRenderer = ({ components = [], onChange }) => {
+const InputRenderer = ({ components = [], onChange, onBlur }) => {
     return (
         <>
             <div>
@@ -23,7 +21,11 @@ const InputRenderer = ({ components = [], onChange }) => {
 
                     return (
                         <div key={id} className="input">
-                            <Component {...props} onChange={onChange} />
+                            <Component
+                                {...props}
+                                onBlur={onBlur}
+                                onChange={onChange}
+                            />
                         </div>
                     );
                 })}

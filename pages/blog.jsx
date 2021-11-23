@@ -1,19 +1,24 @@
 import Head from 'next/head';
+import { serialize } from 'next-mdx-remote/serialize';
 
 import Content from '/components/content';
-import MultistepForm from '/components/multistep-form';
+import Text from '/data/text.mdx';
+
+import Markdown from '/components/markdown';
 
 export async function getStaticProps(context) {
-    const response = await fetch('https://my.backend/form-data');
+    const res = await fetch('https://my.backend/markdown');
 
-    const data = await response.json();
+    const data = await res.json();
+
+    const md = await serialize(data);
 
     return {
-        props: { ...data }
+        props: { md }
     };
 }
 
-export default function AdvancedForm({ steps }) {
+export default function AdvancedForm({ md }) {
     return (
         <div>
             <Head>
@@ -24,16 +29,12 @@ export default function AdvancedForm({ steps }) {
             <main>
                 <Content>
                     <div className="header">
-                        <h1>Advanced Form</h1>
+                        <Markdown md={md} />
+                        <Text />
                     </div>
-                    <MultistepForm steps={steps} />
                 </Content>
             </main>
-            <style jsx>{`
-                .header {
-                    margin-bottom: 4rem;
-                }
-            `}</style>
+            <style jsx>{``}</style>
         </div>
     );
 }

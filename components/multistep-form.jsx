@@ -92,6 +92,7 @@ const MultistepForm = ({ steps = [] }) => {
                             key={id}
                             animate={{ scale: isActive ? 1.1 : 1 }}
                             transition={{ duration: 0.2 }}
+                            initial={false}
                         >
                             <FormStep
                                 id={id}

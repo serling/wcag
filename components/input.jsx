@@ -1,7 +1,20 @@
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 
 import withError from '/components/with-error';
 import ErrorContext from '../contexts/error-context';
+
+const REQUIRED_VALIDATION_TEXT = 'This field is required by law.';
+const GENERIC_VALIDATION_TEXT = "Oops! Something's wrong here.";
+
+const hasText = text => {
+    console.log('checking this', text);
+    return !text;
+};
+
+const checkIfThat = text => {
+    console.log('checking that', text);
+    return !!text;
+};
 
 const types = {
     text: 'text',
@@ -12,8 +25,22 @@ const types = {
     password: 'password'
 };
 
+const validators = {
+    text: [
+        {
+            fn: hasText,
+            message: REQUIRED_VALIDATION_TEXT
+        },
+        {
+            fn: checkIfThat,
+            message: GENERIC_VALIDATION_TEXT
+        }
+    ]
+};
+
 const Input = ({
     id,
+    initialValue = '',
     placeholderText = 'Default placeholder',
     onChange = () => {},
     onBlur = () => {},
@@ -21,6 +48,8 @@ const Input = ({
     leadText = 'Default description.',
     type = types.text
 }) => {
+    const [value, setValue] = useState(initialValue);
+
     const InputElement = type === types['textarea'] ? 'textarea' : 'input';
     const errorId = `error-${id}`;
 
@@ -28,14 +57,22 @@ const Input = ({
         useContext(ErrorContext);
 
     const handleOnChange = value => {
+        setValue(value);
+
         if (hasError) clearErrorMessage();
-
-        onChange(id, value);
     };
 
-    const handleOnBlur = () => {
-        onBlur();
+    const handleOnBlur = value => {
+        // validators[type] &&
+        //     validators[type].map(({ fn, message }) => {
+        //         if (fn(value)) setErrorMessage(message);
+        //     });
+        // onBlur(id);
     };
+
+    // useEffect(() => {
+    //     console.log('has error', hasError);
+    // }, [hasError]);
 
     return (
         <>
@@ -46,10 +83,11 @@ const Input = ({
                 autoComplete="on"
                 aria-describedby={errorId}
                 id={id}
+                value={value}
                 type={type !== types['textarea'] ? types[type] : null}
                 placeholder={placeholderText}
                 onChange={e => handleOnChange(e.target.value)}
-                onBlur={() => handleOnBlur()}
+                onBlur={e => handleOnBlur(e.target.value)}
             />
 
             <style jsx>{`
@@ -71,7 +109,7 @@ const Input = ({
                     padding: 0.5rem;
                     min-width: 300px;
                     border: 2px solid currentColor;
-                    border-color: ${hasError ? 'red' : 'currentColor'};
+                    border-color: ${hasError ? '#950404' : 'currentColor'};
                 }
             `}</style>
         </>

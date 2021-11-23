@@ -14,21 +14,26 @@ const FormStep = ({
     currentStepNumber,
     numberOfSteps
 }) => {
-    // TOOD: pass dispatch down
-
-    // dispatch({
-    //    type: 'set-invalid',
-    //    data: {
-    //       stepId: 'step id',
-    //       componentId: 'an-id'
-    //    }
-    // })
+    const handleOnBlur = componentId => {
+        dispatch({
+            type: 'set-invalid',
+            data: {
+                stepId: id,
+                componentId
+            }
+        });
+    };
 
     return (
         <>
             <section>
                 {title && <h2>{title}</h2>}
-                <InputRenderer components={components} onChange={onChange} />
+                <InputRenderer
+                    components={components}
+                    onChange={onChange}
+                    onBlur={handleOnBlur}
+                    dispatch={dispatch}
+                />
                 <div className="actions">
                     <StepActions onPrevious={onPrevious} onNext={onNext} />
                 </div>
