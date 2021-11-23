@@ -1,4 +1,5 @@
 import Input from '/components/input';
+import TextInput from '/components/text-input';
 import Checkboxes from '/components/checkboxes';
 import Toggle from '/components/toggle';
 import Select from '/components/select';
@@ -6,13 +7,14 @@ import ComplexSelect from '/components/complex-select';
 
 const inputTypes = {
     Input,
+    TextInput,
     Select,
     ComplexSelect,
     Checkboxes,
     Toggle
 };
 
-const InputRenderer = ({ components = [], onChange, onBlur }) => {
+const InputRenderer = ({ components = [], onBlur }) => {
     return (
         <>
             <div>
@@ -21,11 +23,7 @@ const InputRenderer = ({ components = [], onChange, onBlur }) => {
 
                     return (
                         <div key={id} className="input">
-                            <Component
-                                {...props}
-                                onBlur={onBlur}
-                                onChange={onChange}
-                            />
+                            <Component {...props} onBlur={onBlur} />
                         </div>
                     );
                 })}

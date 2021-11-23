@@ -2,12 +2,14 @@ import InputRenderer from '/components/input-renderer';
 import ProgressTracker from '/components/progress-tracker';
 import StepActions from '/components/step-actions';
 
+import actions from '/utilities/actions';
+
 const FormStep = ({
     id,
     title = 'Placeholder title',
-    onChange,
     onNext,
     dispatch,
+    isValid,
     onPrevious,
     components,
     isActive,
@@ -16,7 +18,7 @@ const FormStep = ({
 }) => {
     const handleOnBlur = componentId => {
         dispatch({
-            type: 'set-invalid',
+            type: actions.setInvalid,
             data: {
                 stepId: id,
                 componentId
@@ -28,14 +30,14 @@ const FormStep = ({
         <>
             <section>
                 {title && <h2>{title}</h2>}
-                <InputRenderer
-                    components={components}
-                    onChange={onChange}
-                    onBlur={handleOnBlur}
-                    dispatch={dispatch}
-                />
+                <InputRenderer components={components} onBlur={handleOnBlur} />
+                <div>is valid? {isValid}</div>
                 <div className="actions">
-                    <StepActions onPrevious={onPrevious} onNext={onNext} />
+                    <StepActions
+                        onPrevious={onPrevious}
+                        onNext={onNext}
+                        isValid={isValid}
+                    />
                 </div>
                 <div className="progress">
                     <ProgressTracker

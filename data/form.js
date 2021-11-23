@@ -6,10 +6,10 @@ const data = {
             components: [
                 {
                     id: 'field-1-1',
-                    type: 'Input',
+                    type: 'TextInput',
                     props: {
                         id: '13e1fc60-560c-5d8f-b348-589d4aba5016',
-                        value: '',
+                        initialValue: '',
                         labelText: 'Write something here...',
                         leadText: "It's good for you",
                         placeholder: 'text goes here...'
@@ -43,16 +43,16 @@ const data = {
                         labelText: 'Toggle this thing'
                     }
                 },
-                {
-                    id: 'field-2-2',
-                    type: 'Input',
-                    props: {
-                        id: '6b02851e-2bf8-5c30-a758-fc4e1903ddeb',
-                        value: '',
-                        type: 'textarea',
-                        labelText: 'Another one of these'
-                    }
-                },
+                // {
+                //     id: 'field-2-2',
+                //     type: 'Input',
+                //     props: {
+                //         id: '6b02851e-2bf8-5c30-a758-fc4e1903ddeb',
+                //         value: '',
+                //         type: 'textarea',
+                //         labelText: 'Another one of these'
+                //     }
+                // },
                 {
                     id: 'field-2-3',
                     type: 'ComplexSelect',
@@ -72,15 +72,15 @@ const data = {
             id: 'step-3',
             stepNumber: 3,
             components: [
-                {
-                    id: 'field-3-1',
-                    type: 'Input',
-                    props: {
-                        id: 'd543c932-6163-556f-9d7e-765ce11488ee',
-                        value: '',
-                        placeholder: 'default placeholder'
-                    }
-                },
+                // {
+                //     id: 'field-3-1',
+                //     type: 'Input',
+                //     props: {
+                //         id: 'd543c932-6163-556f-9d7e-765ce11488ee',
+                //         value: '',
+                //         placeholder: 'default placeholder'
+                //     }
+                // },
                 {
                     id: 'field-3-2',
                     type: 'Checkboxes',

@@ -55,16 +55,10 @@ export default function Forms() {
                         </section>
                         <section>
                             <div className="heading">
-                                <h2>E-mail input w/ error</h2>
+                                <h2>E-mail input</h2>
                             </div>
                             <div className="content">
-                                <Input
-                                    id="email-1"
-                                    type={'email'}
-                                    error={{
-                                        text: 'Default initial error message'
-                                    }}
-                                />
+                                <Input id="email-1" type={'email'} />
                             </div>
                         </section>
                         <section>
@@ -81,7 +75,6 @@ export default function Forms() {
                             </div>
                             <div className="content">
                                 <Checkboxes
-                                    error={{}}
                                     id="checkboxes-1"
                                     options={[
                                         { labelText: 'checkbox 1' },
@@ -97,7 +90,6 @@ export default function Forms() {
                             </div>
                             <div className="content">
                                 <Checkboxes
-                                    error={{}}
                                     id="radios-1"
                                     type="radio"
                                     options={[
@@ -114,7 +106,6 @@ export default function Forms() {
                             </div>
                             <div className="content">
                                 <Select
-                                    error={{}}
                                     id="radios-1"
                                     options={[
                                         { label: 'Earth', value: 'earth-1' },
@@ -131,7 +122,6 @@ export default function Forms() {
                             </div>
                             <div className="content">
                                 <ComplexSelect
-                                    error={{}}
                                     id="checkboxes-2"
                                     options={[
                                         { label: 'Apples', value: 'apples-1' },
@@ -162,7 +152,7 @@ export default function Forms() {
                                 <h2>Toggle (checkbox)</h2>
                             </div>
                             <div className="content">
-                                <Toggle error={{}} />
+                                <Toggle />
                             </div>
                         </section>
                         <section>
@@ -175,7 +165,6 @@ export default function Forms() {
                                 <Button
                                     hasIcon={true}
                                     textIsHidden={true}
-                                    type={Button.types.submit}
                                     text="icon only"
                                 />
                             </div>

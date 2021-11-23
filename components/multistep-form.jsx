@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import FormStep from '/components/form-step';
 
 import clamp from '/utilities/clamp';
+import actions from '/utilities/actions';
 
 function reducer(state, action) {
     let newState;
@@ -11,27 +12,27 @@ function reducer(state, action) {
     const { type, data } = action;
 
     switch (type) {
-        case 'set-invalid':
+        case actions.setInvalid:
             newState = {
                 ...state,
                 steps: [
                     ...state?.steps?.map(step => {
+                        if (data?.stepId !== step.id) return step;
+
                         return {
                             ...step,
-                            components: step.components?.map(component => {
-                                if (component.id !== data.componentId)
-                                    return component;
-
-                                return { ...component, isValid: false };
-                            })
+                            isValid: true
                         };
                     })
                 ]
             };
+
             break;
         default:
             throw new Error();
     }
+
+    console.log(newState);
 
     return newState;
 }
@@ -44,22 +45,11 @@ const MultistepForm = ({ steps = [] }) => {
             ...steps.map(step => {
                 return {
                     ...step,
-                    components: step.components.map(component => {
-                        return {
-                            ...component,
-                            isValid: false,
-                            isDirty: false,
-                            isTouched: false
-                        };
-                    })
+                    isValid: true //TODO: false
                 };
             })
         ]
     });
-
-    useEffect(() => {
-        console.log(state);
-    }, [state]);
 
     const handleOnSubmit = e => {
         e.preventDefault();
@@ -77,14 +67,10 @@ const MultistepForm = ({ steps = [] }) => {
         );
     };
 
-    const handleOnChange = (id, value) => {
-        console.log(id, value);
-    };
-
     return (
         <>
             <form action="/" method="POST" onSubmit={e => handleOnSubmit(e)}>
-                {state.steps.map(({ id, stepNumber, components }) => {
+                {state.steps.map(({ id, stepNumber, components, isValid }) => {
                     const isActive = activeStepNumber === stepNumber;
 
                     return (
@@ -96,12 +82,12 @@ const MultistepForm = ({ steps = [] }) => {
                         >
                             <FormStep
                                 id={id}
+                                isValid={isValid}
                                 title={`Steg ${stepNumber}`}
                                 components={components}
                                 currentStepNumber={activeStepNumber}
                                 numberOfSteps={steps.length}
                                 dispatch={dispatch}
-                                onChange={handleOnChange}
                                 onPrevious={handleOnPreviousClick}
                                 onNext={handleOnNextClick}
                                 isActive={isActive}

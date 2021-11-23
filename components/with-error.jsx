@@ -7,12 +7,12 @@ const withError =
     Component =>
     ({ error, ...props }) =>
         (
-            <WithError error={error}>
+            <WithError error={error} id={`error-${props?.id}`}>
                 <Component {...props} />
             </WithError>
         );
 
-const WithError = ({ children, error = { text: '' } }) => {
+const WithError = ({ children, error = { text: '' }, id }) => {
     const { text } = error;
 
     const [errorMessage, setErrorMessage, clearErrorMessage] = useError(text);
@@ -27,7 +27,7 @@ const WithError = ({ children, error = { text: '' } }) => {
             }}
         >
             {children}
-            {errorMessage && <Error text={errorMessage} />}
+            {errorMessage && <Error text={errorMessage} id={id} />}
         </ErrorContext.Provider>
     );
 };

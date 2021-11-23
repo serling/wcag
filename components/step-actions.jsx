@@ -1,10 +1,10 @@
-const StepActions = ({ onPrevious, onNext }) => {
+const StepActions = ({ onPrevious, onNext, isValid }) => {
     return (
         <div className="step-actions">
-            <button type="button" onClick={onPrevious}>
+            <button type="button" onClick={onPrevious} disabled={!isValid}>
                 Previous
             </button>
-            <button type="button" onClick={onNext}>
+            <button type="button" onClick={onNext} disabled={!isValid}>
                 Next
             </button>
             <style jsx>
