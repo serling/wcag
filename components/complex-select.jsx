@@ -41,9 +41,15 @@ const ComplexSelect = ({
                     isMulti={true}
                     isSearchable={true}
                     styles={{
-                        control: provided => {
+                        placeholder: defaultStyles => {
                             return {
-                                ...provided,
+                                ...defaultStyles,
+                                color: 'hsl(0%, 0%, 75%)'
+                            };
+                        },
+                        control: defaultStyles => {
+                            return {
+                                ...defaultStyles,
                                 ...(hasError
                                     ? { borderColor: 'red', borderWidth: '2px' }
                                     : {})
